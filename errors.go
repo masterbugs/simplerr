@@ -2,6 +2,8 @@ package simplerr
 
 import (
 	"fmt"
+
+	"github.com/golang/protobuf/proto"
 )
 
 // attribute is a key value pair for attributes on errors
@@ -32,6 +34,8 @@ type SimpleError struct {
 	attr []attribute
 	// stackTrace is the call stack trace for the error
 	rawStackFrames []uintptr
+
+	details []proto.Message
 }
 
 // New creates a new SimpleError from a formatted string
@@ -64,6 +68,17 @@ func (e *SimpleError) GetCode() Code {
 // Code sets the error code. The assigned code should be defined in the registry.
 func (e *SimpleError) Code(code Code) *SimpleError {
 	e.code = code
+	return e
+}
+
+// GetDetails returns the error details as set on the error
+func (e *SimpleError) GetDetails() []proto.Message {
+	return e.details
+}
+
+// AddDetails returns SimpleError with the given details attached to it
+func (e *SimpleError) AddDetails(details ...proto.Message) *SimpleError {
+	e.details = append(e.details, details...)
 	return e
 }
 

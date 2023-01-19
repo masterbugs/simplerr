@@ -2,6 +2,7 @@ package simplegrpc
 
 import (
 	"context"
+
 	"github.com/lobocv/simplerr"
 
 	"google.golang.org/grpc"
@@ -84,5 +85,11 @@ func (e *grpcError) Unwrap() error {
 
 // GRPCStatus implements an interface that the gRPC framework uses to return the gRPC status code
 func (e *grpcError) GRPCStatus() *status.Status {
-	return status.New(e.code, e.Error())
+	s := status.New(e.code, e.Error())
+
+	for _, pm := range e.SimpleError.GetDetails() {
+		s, _ = s.WithDetails(pm)
+	}
+
+	return s
 }
