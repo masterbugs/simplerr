@@ -23,6 +23,7 @@ func DefaultMapping() map[simplerr.Code]codes.Code {
 		simplerr.CodeNotImplemented:    codes.Unimplemented,
 		simplerr.CodeInvalidArgument:   codes.InvalidArgument,
 		simplerr.CodeResourceExhausted: codes.ResourceExhausted,
+		simplerr.CodeInternal:          codes.Internal,
 	}
 
 	return m
