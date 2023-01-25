@@ -13,17 +13,18 @@ import (
 // DefaultMapping returns the default mapping of SimpleError codes to gRPC error codes
 func DefaultMapping() map[simplerr.Code]codes.Code {
 	m := map[simplerr.Code]codes.Code{
-		simplerr.CodeUnknown:           codes.Unknown,
-		simplerr.CodeAlreadyExists:     codes.AlreadyExists,
-		simplerr.CodeNotFound:          codes.NotFound,
-		simplerr.CodeDeadlineExceeded:  codes.DeadlineExceeded,
-		simplerr.CodeCanceled:          codes.Canceled,
-		simplerr.CodeUnauthenticated:   codes.Unauthenticated,
-		simplerr.CodePermissionDenied:  codes.PermissionDenied,
-		simplerr.CodeNotImplemented:    codes.Unimplemented,
-		simplerr.CodeInvalidArgument:   codes.InvalidArgument,
-		simplerr.CodeResourceExhausted: codes.ResourceExhausted,
-		simplerr.CodeInternal:          codes.Internal,
+		simplerr.CodeUnknown:            codes.Unknown,
+		simplerr.CodeAlreadyExists:      codes.AlreadyExists,
+		simplerr.CodeNotFound:           codes.NotFound,
+		simplerr.CodeDeadlineExceeded:   codes.DeadlineExceeded,
+		simplerr.CodeCanceled:           codes.Canceled,
+		simplerr.CodeUnauthenticated:    codes.Unauthenticated,
+		simplerr.CodePermissionDenied:   codes.PermissionDenied,
+		simplerr.CodeNotImplemented:     codes.Unimplemented,
+		simplerr.CodeInvalidArgument:    codes.InvalidArgument,
+		simplerr.CodeResourceExhausted:  codes.ResourceExhausted,
+		simplerr.CodeInternal:           codes.Internal,
+		simplerr.CodeFailedPrecondition: codes.FailedPrecondition,
 	}
 
 	return m

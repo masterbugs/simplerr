@@ -40,6 +40,8 @@ const (
 	CodeUnavailable Code = 14
 	// CodeInternal indicates several internal error conditions
 	CodeInternal Code = 15
+	// CodeFailedPrecondition indicates that the operation was rejected because the system is not in a state
+	CodeFailedPrecondition Code = 16
 )
 
 // NumberOfReservedCodes is the code number, under which, are reserved for use by this library.
